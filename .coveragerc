@@ -1,0 +1,9 @@
+[run]
+omit =
+    config/*,
+    *migrations*,
+    .nox/*,
+    env/*,
+    venv/*
+plugins =
+    django_coverage_plugin

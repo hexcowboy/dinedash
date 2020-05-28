@@ -14,8 +14,14 @@ def test(session):
     Run all test files in the project.
     """
     session.install("-r", "requirements/testing.txt")
-    session.run("pytest",
-                env={"DJANGO_SETTINGS_MODULE": "config.settings.testing"})
+    session.run(
+        "coverage",
+        "run",
+        "-m",
+        "pytest",
+        env={"DJANGO_SETTINGS_MODULE": "config.settings.testing"},
+    )
+    session.run("coverage", "report", "-m")
 
 
 @nox.session
@@ -40,7 +46,9 @@ def lint(session):
     flake8: Checks for PEP8 syntax errors
     pylint: Checks for stylistic and logical syntax errors
     """
-    modules = ("dinedash",)
+    modules = ("dinedash", )
     session.install("flake8", "pylint")
     session.run("flake8", *modules)
-    session.run("pylint", *modules)
+    # To ignore Django errors, pylint_django needs Django and factory_boy
+    session.install("pylint-django", "django", "factory_boy")
+    session.run("pylint", "--load-plugins", "pylint_django", *modules)

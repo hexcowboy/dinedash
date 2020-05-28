@@ -2,5 +2,4 @@
 ignore=migrations
 ignore-patterns=test_.*?py
 disable=
-    import-error,
-    too-few-public-methods
+    import-error
