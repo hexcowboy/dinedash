@@ -1,0 +1,12 @@
+-r ./base.txt
+
+# Testing
+nox
+pytest
+pytest-django
+
+# Code coverage
+coverage
+
+# Fake data
+factory_boy

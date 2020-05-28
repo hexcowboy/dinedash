@@ -1,5 +1,10 @@
--r ./base.txt
+-r ./testing.txt
 
-# Linting
+# Formatting
 isort
 black
+yapf
+
+# Linting
+flake8
+pylint

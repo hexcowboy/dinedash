@@ -1,7 +1,4 @@
-import os
+# noqa: F401, F403
+from .testing import *  # pylint:disable=unused-wildcard-import
 
-from .base import *
-
-SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY")
-DEBUG = True
 ALLOWED_HOSTS = ["localhost", "0.0.0.0", "127.0.0.1"]
