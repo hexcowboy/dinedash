@@ -34,9 +34,9 @@ def fix(session):
     """
     modules = ("dinedash", "config", "manage.py")
     session.install("isort", "black", "yapf")
-    session.run("isort", "--atomic", "-rc", *modules)
     session.run("black", *modules)
     session.run("yapf", "-i", "--recursive", *modules)
+    session.run("isort", "--atomic", "-rc", *modules)
 
 
 @nox.session
