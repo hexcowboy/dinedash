@@ -1,5 +1,7 @@
 [MASTER]
-ignore=migrations
+ignore=
+    migrations,
+    fixtures.py
 ignore-patterns=test_.*?py
 disable=
     import-error
