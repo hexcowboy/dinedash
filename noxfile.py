@@ -5,7 +5,9 @@ Run `tox` to run all suites.
 If you are contributing, please run all suites and fix all
 errors and warning before submitting a pull request.
 """
-import nox, os
+import os
+
+import nox
 
 
 @nox.session
@@ -13,10 +15,11 @@ def test(session):
     """
     Run all test files in the project.
     """
-    if os.environ.get('DJANGO_SECRET_KEY') is None:
-        session.log('Please set the DJANGO_SECRET_KEY variable')
-        session.log('Use the following if you\'re just developing:')
-        session.log('  export DJANGO_SECRET_KEY=$(openssl rand -hex 16)')
+    if os.environ.get("DJANGO_SECRET_KEY") is None:
+        session.error("""
+Please set the DJANGO_SECRET_KEY variable
+Use the following if you\'re just developing:
+  export DJANGO_SECRET_KEY=$(openssl rand -hex 16)""")
 
     session.install("-r", "requirements/testing.txt")
     session.run(
