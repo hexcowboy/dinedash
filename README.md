@@ -1,8 +1,8 @@
-## Documentation
+## 📚 Documentation
 
 Documentation is currently a work in progress.
 
-## Development
+## 💻 Development
 
 To get started with development, clone the repo and set the following enironment variables:
 
@@ -27,7 +27,7 @@ pip install --upgrade pip
 pip install -r requirements/development.txt
 ```
 
-## Testing
+## 🧪 Testing
 
 Install dependencies (_note: the testing dependencies are included in the development dependencies_)
 ```bash
@@ -44,7 +44,7 @@ nox -s test
 nox -s lint
 ```
 
-## Contributing
+## 🤝 Contributing
 
 To set a strict standard, all new pull requests must retain a 100% code coverage. All code should be formatted with the following tools before create a pull request.
 
