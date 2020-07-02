@@ -3,7 +3,12 @@ This module connects the app's models to the Django admin interface
 """
 from django.contrib import admin
 
-from .models import Menu, MenuCategory
+from .models import Menu, MenuCategory, MenuItem, AddonSection, Addon
+
+admin.site.register(MenuCategory)
+admin.site.register(MenuItem)
+admin.site.register(AddonSection)
+admin.site.register(Addon)
 
 
 class CategoryInline(admin.TabularInline):

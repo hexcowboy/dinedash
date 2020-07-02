@@ -1,7 +1,10 @@
 """
 This module defines the data structure of a Menu.
 """
+import shortuuid
+
 from django.db import models
+from .fields import ShortUUIDField
 
 
 class Menu(models.Model):
@@ -10,6 +13,7 @@ class Menu(models.Model):
     eg. Breakfast Menu, Lunch Menu, Weekend Menu
     """
 
+    uuid = ShortUUIDField(primary_key=True, editable=False)
     title = models.CharField(max_length=150)
     description = models.TextField()
 

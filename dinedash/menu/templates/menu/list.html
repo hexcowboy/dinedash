@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}Menus{% endblock %}
+
+{% block body %}
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Menu Title</th>
+      <th scope="col">Menu Description</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for menu in object_list %}
+    <tr>
+      <th scope="row">
+        <a href="{% url 'menu:detail' uuid=menu.uuid %}">{{ menu.title }}</a>
+      </th>
+      <td>{{ menu.description }}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% endblock body %}
