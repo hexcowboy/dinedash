@@ -2,6 +2,7 @@
 This module provides a quick way to generate fake model data
 to be used for testing or other data analysis.
 """
+import shortuuid
 from factory import DjangoModelFactory, Faker, SubFactory
 from factory.fuzzy import FuzzyChoice
 
@@ -11,6 +12,7 @@ from ..models import Addon, AddonSection, Menu, MenuCategory, MenuItem
 class MenuFactory(DjangoModelFactory):
     """Provides fake data for the Menu model"""
 
+    uuid = shortuuid.uuid()
     title = Faker("word")
     description = Faker("paragraph")
 

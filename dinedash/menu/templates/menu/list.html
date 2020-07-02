@@ -14,7 +14,7 @@
   {% for menu in object_list %}
     <tr>
       <th scope="row">
-        <a href="{% url 'menu:detail' uuid=menu.uuid %}">{{ menu.title }}</a>
+        <a href="{% url 'menu:detail' pk=menu.uuid %}">{{ menu.title }}</a>
       </th>
       <td>{{ menu.description }}</td>
     </tr>
