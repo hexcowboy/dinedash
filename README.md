@@ -4,15 +4,21 @@ Documentation is currently a work in progress.
 
 ## 💻 Development
 
-To get started with development, clone the repo and set the following enironment variables:
+To get started with development, you will need to create a Postgres database:
+```bash
+createdb dinedash                     # Creates PostgreSQL database locally
+createuser dinedash -P                # Create a user and prompt for password
+```
+
+Next, export the following environment variables with the information you just entered for the database.
 
 ```bash
-export DJANGO_SECRET_KEY=''
-export POSTGRES_HOST=''
-export POSTGRES_PORT=''
-export POSTGRES_DB_NAME=''
-export POSTGRES_USER=''
-export POSTGRES_PASSWORD=''
+export DJANGO_SECRET_KEY=$(uuidgen)   # Generates a UUID for a secret key
+export POSTGRES_HOST='localhost'      # The address of your postgres server
+export POSTGRES_PORT='5432'           # Default postgres port 5432
+export POSTGRES_DB_NAME='dinedash'    # Database name (created in last step)
+export POSTGRES_USER='dinedash'       # Database user (created in last step)
+export POSTGRES_PASSWORD=''           # Database password (created in last step)
 ```
 
 Start a new virtual environment of your choice, or use
