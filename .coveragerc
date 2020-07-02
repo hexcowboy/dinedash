@@ -3,6 +3,7 @@ omit =
     config/*,
     *migrations*,
     .nox/*,
+    .env/*,
     env/*,
     venv/*
 plugins =
