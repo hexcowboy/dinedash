@@ -4,6 +4,23 @@
 {% block title %}Menus{% endblock %}
 
 {% block body %}
+<div class="modal" id="exampleModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <img src="{% static 'qr-code.svg' %}" style="padding:2rem" width="100%" alt="QR"/>
+        <p>A placeholder until we can generate real QR codes for menus.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
 <table class="table">
   <thead>
     <tr>
@@ -16,7 +33,7 @@
   {% for menu in object_list %}
     <tr>
       <td>
-        <button type="button" class="btn btn-light btn-sm">
+        <button type="button" class="btn btn-light btn-sm" data-toggle="modal" data-target="#exampleModal">
           <img src="{% static 'qr-code.svg' %}" height="12px" width="12px" alt="QR"/>
         </button>
       </td>
