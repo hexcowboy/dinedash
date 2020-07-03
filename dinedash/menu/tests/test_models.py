@@ -5,12 +5,8 @@ import pytest
 from django.db.utils import IntegrityError
 
 from ..models import MenuCategory, MenuItem
-from .factories import (
-    AddonFactory,
-    AddonSectionFactory,
-    MenuCategoryFactory,
-    MenuItemFactory,
-)
+from .factories import (AddonFactory, AddonSectionFactory, MenuCategoryFactory,
+                        MenuItemFactory)
 from .fixtures import addon, addon_section, menu, menu_category, menu_item
 
 pytestmark = pytest.mark.django_db

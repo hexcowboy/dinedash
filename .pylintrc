@@ -1,7 +1,15 @@
 [MASTER]
+
 ignore=
     migrations,
     fixtures.py
-ignore-patterns=test_.*?py
+
+ignore-patterns=
+    test_.*?py
+
 disable=
-    import-error
+    import-error,
+    wrong-import-order
+
+# Maximum number of parents for a class (see R0901).
+max-parents=15

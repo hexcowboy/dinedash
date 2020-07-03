@@ -5,6 +5,7 @@ omit =
     .nox/*,
     .env/*,
     env/*,
-    venv/*
+    venv/*,
+    */templates/*
 plugins =
     django_coverage_plugin

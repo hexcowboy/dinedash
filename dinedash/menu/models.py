@@ -1,9 +1,8 @@
 """
 This module defines the data structure of a Menu.
 """
-import shortuuid
-
 from django.db import models
+
 from .fields import ShortUUIDField
 
 
@@ -18,7 +17,7 @@ class Menu(models.Model):
     description = models.TextField()
 
     class Meta:
-        ordering = ['title']
+        ordering = ["title"]
 
     def __str__(self):
         return str(self.title)

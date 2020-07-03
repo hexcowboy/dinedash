@@ -3,27 +3,27 @@ https://github.com/benrobster/django-shortuuidfield/blob/master/shortuuidfield/f
 """
 import shortuuid
 import six
-import sys
 from django.db.models import CharField
 
 
 class ShortUUIDField(CharField):
     """
-    A field which stores a Short UUID value in base57 format. This may also have
-    the Boolean attribute 'auto' which will set the value on initial save to a
-    new UUID value (calculated using shortuuid's default (uuid4)). Note that while all
-    UUIDs are expected to be unique we enforce this with a DB constraint.
+    A field which stores a Short UUID value in base57 format. This may also
+    have the Boolean attribute 'auto' which will set the value on initial save
+    to a new UUID value (calculated using shortuuid's default (uuid4)). Note
+    that while all UUIDs are expected to be unique we enforce this with a DB
+    constraint.
     """
-
-    def __init__(self, auto=True, *args, **kwargs):
+    def __init__(self, *args, auto=True, **kwargs):
         self.auto = auto
         # We store UUIDs in base57 format, which is fixed at 22 characters.
-        kwargs['max_length'] = 22
+        kwargs["max_length"] = 22
         if auto:
             # Do not let the user edit UUIDs if they are auto-assigned.
-            kwargs['editable'] = False
-            kwargs['blank'] = True
-           # kwargs['unique'] = True  # if you want to be paranoid, set unique=True in your instantiation of the field.
+            kwargs["editable"] = False
+            kwargs["blank"] = True
+        # kwargs['unique'] = True  # if you want to be paranoid, set
+        # unique=True in your instantiation of the field.
 
         super(ShortUUIDField, self).__init__(*args, **kwargs)
 
