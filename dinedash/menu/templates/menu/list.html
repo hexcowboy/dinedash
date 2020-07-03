@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block title %}Menus{% endblock %}
 
@@ -6,6 +7,7 @@
 <table class="table">
   <thead>
     <tr>
+      <th scope="col">QR</th>
       <th scope="col">Menu Title</th>
       <th scope="col">Menu Description</th>
     </tr>
@@ -13,6 +15,11 @@
   <tbody>
   {% for menu in object_list %}
     <tr>
+      <td>
+        <button type="button" class="btn btn-light btn-sm">
+          <img src="{% static 'qr-code.svg' %}" height="12px" width="12px" alt="QR"/>
+        </button>
+      </td>
       <th scope="row">
         <a href="{% url 'menu:detail' pk=menu.uuid %}">{{ menu.title }}</a>
       </th>
