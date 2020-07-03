@@ -52,9 +52,9 @@ nox -s lint
 
 ## 🤝 Contributing
 
-To set a strict standard, all new pull requests must retain a 100% code coverage. All code should be formatted with the following tools before create a pull request.
+To make future contributions more smooth, all pull requests must retain a 100% code coverage. All code should be tested, formatted, and linted. If all sessions pass, the pull request can be considered for merging.
 
-### Formatting
+### Testing, linting, and formatting
 ```bash
-nox -s fix lint
+nox         # Fix any errors, broken tests, or missing coverage before submitting a PR
 ```
