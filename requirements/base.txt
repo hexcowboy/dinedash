@@ -1,4 +1,11 @@
 Django
+
+# Database
 psycopg2-binary
 
+# Model utilities
 shortuuid
+
+# QR Code Utilities
+Pillow
+qrcode
