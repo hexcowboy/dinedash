@@ -12,14 +12,14 @@ from .fixtures import addon, addon_section, menu, menu_category, menu_item
 pytestmark = pytest.mark.django_db
 
 
-class TestMenuModel:
+class TestMenu:
     """Tests for the Menu model"""
     def test_str_representation(self, menu):
         """Test the __str__() function returns the title"""
         assert str(menu) == menu.title
 
 
-class TestMenuCategoryModel:
+class TestMenuCategory:
     """Tests for the MenuCategory model"""
     def test_str_representation(self, menu_category):
         """Test the __str__() function returns the title"""
@@ -31,7 +31,7 @@ class TestMenuCategoryModel:
             category = MenuCategoryFactory(menu=None)
 
 
-class TestMenuItemModel:
+class TestMenuItem:
     """Tests for the MenuItem model"""
     def test_str_representation(self, menu_item):
         """Test the __str__() function returns the title"""
@@ -43,7 +43,7 @@ class TestMenuItemModel:
             menu_item = MenuItemFactory(category=None)
 
 
-class TestAddonSectionModel:
+class TestAddonSection:
     """Tests for the AddonSection model"""
     def test_str_representation(self, addon_section):
         """Test the __str__() function returns the description"""
@@ -55,7 +55,7 @@ class TestAddonSectionModel:
             addon_section = AddonSectionFactory(menu_item=None)
 
 
-class TestAddonModel:
+class TestAddon:
     """Tests for the Addon model"""
     def test_str_representation(self, addon):
         """Test the __str__() function returns the description"""

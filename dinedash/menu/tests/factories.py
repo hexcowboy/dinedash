@@ -37,6 +37,7 @@ class MenuItemFactory(DjangoModelFactory):
     title = Faker("word")
     description = Faker("paragraph")
     category = SubFactory(MenuCategoryFactory)
+    price = Faker("numerify", text="##.##")
 
     class Meta:
         model = MenuItem

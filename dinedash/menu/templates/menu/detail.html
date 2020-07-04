@@ -3,32 +3,33 @@
 {% block title %}{{ object.title }}{% endblock %}
 
 {% block body %}
+<a href="{% url 'menu:list' %}">&laquo; Back to all menus</a>
 <h1 class="display-4">{{ object.title }}</h1>
 <p class="lead">
   {{ object.description }}
 </p>
 
-{% for category in categories %}
-<div class="card my-3">
-  <div class="card-body">
+<ul class="list-group">
+  {% for category in categories %}
+  <li class="list-group-item p-4">
     <h3>{{ category.title }}</h3>
     <p>{{ category.description }}</p>
-    <table class="table table-bordered table-hover">
+    <table class="table table-borderless table-hover">
       <tbody>
         {% for item in category.menuitem_set.all %}
         <tr>
           <td>
             <span class="font-weight-bold">{{ item.title }}</span>
+            <span class="float-right">${{ item.price }}</span>
             <br>
             <span class="font-weight-light">{{ item.description }}</span>
           </td>
-          <td>{{ item.price }}</td>
         </tr>
         {% endfor %}
       </tbody>
     </table>
-  </div>
-</div>
-{% endfor %}
+  </li>
+  {% endfor %}
+</ul>
 
 {% endblock body %}
