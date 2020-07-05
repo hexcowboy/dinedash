@@ -27,9 +27,9 @@ PROJECT_APPS = [
 ]
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + PROJECT_APPS
 
-STATIC_ROOT = str(BASE_DIR / "static")
+STATIC_ROOT = str(BASE_DIR / "staticfiles")
 STATIC_URL = "/static/"
-STATICFILES_DIRS = [str(APPS_DIR / "static")]
+STATICFILES_DIRS = [str(BASE_DIR / "static"), str(APPS_DIR / "static")]
 STATICFILES_FINDERS = [
     "django.contrib.staticfiles.finders.FileSystemFinder",
     "django.contrib.staticfiles.finders.AppDirectoriesFinder",
