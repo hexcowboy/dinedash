@@ -8,7 +8,6 @@ ignore-patterns=
     test_.*?py
 
 disable=
-    import-error,
     wrong-import-order
 
 # Maximum number of parents for a class (see R0901).

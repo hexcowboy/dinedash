@@ -36,15 +36,13 @@ Use the following if you\'re just developing:
 def fix(session):
     """
     Recursively formats files specified in the `modules` tuple.
-    isort:  Sorts imports
     black:  Standardizes all files to a strict style
     yapf:   Makes all files conform to PEP8
     """
     modules = ("dinedash", "config", "manage.py")
-    session.install("isort", "black", "yapf")
+    session.install("black", "yapf")
     session.run("black", *modules)
     session.run("yapf", "-i", "--recursive", *modules)
-    session.run("isort", "--atomic", "-rc", *modules)
 
 
 @nox.session
@@ -58,5 +56,5 @@ def lint(session):
     session.install("flake8", "pylint")
     session.run("flake8", *modules)
     # To ignore Django errors, pylint_django needs Django and factory_boy
-    session.install("pylint-django", "django", "factory_boy")
+    session.install("pylint-django", "django", "factory_boy", "shortuuid")
     session.run("pylint", "--load-plugins", "pylint_django", *modules)

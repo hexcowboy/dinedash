@@ -1,7 +1,6 @@
 -r ./testing.txt
 
 # Formatting
-isort
 black
 yapf
 
