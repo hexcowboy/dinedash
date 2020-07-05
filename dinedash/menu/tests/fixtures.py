@@ -5,8 +5,13 @@ https://docs.pytest.org/en/latest/fixture.html
 """
 import pytest
 
-from .factories import (AddonFactory, AddonSectionFactory, MenuCategory,
-                        MenuFactory, MenuItemFactory)
+from .factories import (
+    AddonFactory,
+    AddonSectionFactory,
+    MenuCategory,
+    MenuFactory,
+    MenuItemFactory,
+)
 
 
 @pytest.fixture
