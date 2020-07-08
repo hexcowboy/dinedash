@@ -9,3 +9,6 @@ shortuuid
 # QR Code Utilities
 Pillow
 qrcode
+
+# Templating
+django-crispy-forms

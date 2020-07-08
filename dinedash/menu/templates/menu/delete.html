@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}
+Delete {{ object.title }}
+{% endblock title %}
+
+{% block body %}
+<form method="post">{% csrf_token %}
+  <p>Are you sure you want to delete "{{ object }}"?</p>
+  <div class="btn-group" role="group" aria-label="Menu controls">
+    <a class="btn btn-secondary" href="{% url 'menu:detail' pk=object.uuid %}">Cancel</a>
+    <button type="submit" class="btn btn-danger">Confirm Delete</button>
+  </div>
+</form>
+{% endblock  %}

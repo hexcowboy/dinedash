@@ -1,19 +1,37 @@
 {% extends "base.html" %}
 
-{% block title %}{{ object.title }}{% endblock %}
+{% block title %}{{ menu }}{% endblock title %}
 
 {% block body %}
 <a href="{% url 'menu:list' %}">&laquo; Back to all menus</a>
-<h1 class="display-4">{{ object.title }}</h1>
-<p class="lead">
-  {{ object.description }}
-</p>
 
-<ul class="list-group">
-  {% for category in categories %}
+{% block menu_controls %}
+<div class="btn-group float-right" role="group" aria-label="Menu controls">
+  <a href="{% url 'menu:update' pk=menu.uuid %}" type="button" class="btn btn-primary">Modify</a>
+  <a href="{% url 'menu:delete' pk=menu.uuid %}" type="button" class="btn btn-danger">Delete</a>
+</div>
+{% endblock menu_controls %}
+
+{% block menu_meta %}
+<h1 class="display-4">{{ menu.title }}</h1>
+<p class="lead">
+  {{ menu.description }}
+</p>
+{% endblock menu_meta %}
+
+<ul class="list-group my-4">
+  {% for category in menu.menucategory_set.all %}
   <li class="list-group-item p-4">
-    <h3>{{ category.title }}</h3>
-    <p>{{ category.description }}</p>
+    {% if object.id != category.id %}
+      <h3 class="d-inline" id="{{ category.title }}">{{ category.title }}</h3>
+      <a href="{% url 'menu:update_category' menu_pk=menu.uuid pk=category.pk %}#{{ category.title }}" type="button">Edit</a>
+      <span> | </span>
+      <a href="{% url 'menu:delete_category' menu_pk=menu.uuid pk=category.pk %}" class="text-danger" type="button">Delete</a>
+      <p>{{ category.description }}</p>
+    {% else %}
+      {% block update_category %}
+      {% endblock update_category %}
+    {% endif %}
     <table class="table table-borderless table-hover">
       <tbody>
         {% for item in category.menuitem_set.all %}
@@ -26,10 +44,19 @@
           </td>
         </tr>
         {% endfor %}
+        <tr>
+          <td>
+            <small><a href="#" class="text-small">+ Add new item</a></small>
+          </td>
+        </tr>
       </tbody>
     </table>
   </li>
   {% endfor %}
+  <li class="list-group-item p-4">
+    {% block category_controls %}
+    <a href="{% url 'menu:create_category' menu_pk=menu.uuid %}#new-category" type="button">Create New Category</a>
+    {% endblock category_controls %}
+  </li>
 </ul>
-
 {% endblock body %}

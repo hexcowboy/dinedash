@@ -21,7 +21,9 @@ DJANGO_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
 ]
-THIRD_PARTY_APPS = []
+THIRD_PARTY_APPS = [
+    "crispy_forms",
+]
 PROJECT_APPS = [
     "dinedash.menu.apps.MenuConfig",
 ]
@@ -100,3 +102,5 @@ AUTH_PASSWORD_VALIDATORS = [
         "django.contrib.auth.password_validation.NumericPasswordValidator",
     },
 ]
+
+CRISPY_TEMPLATE_PACK = "bootstrap4"

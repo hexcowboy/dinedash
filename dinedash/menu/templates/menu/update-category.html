@@ -1,0 +1,16 @@
+{% extends "menu/detail.html" %}
+{% load crispy_forms_tags %}
+
+{% block menu_controls %}
+{# Clear the menu controls while editing Categories #}
+{% endblock menu_controls %}
+
+{% block update_category %}
+<form method="post" id="{{ category.title }}">{% csrf_token %}
+  {{ form | crispy }}
+  <div class="btn-group" role="group" aria-label="Menu controls">
+    <button type="submit" class="btn btn-primary">Update</button>
+    <a class="btn btn-secondary" href="{% url 'menu:detail' pk=menu.uuid %}">Cancel</a>
+  </div>
+</form>
+{% endblock update_category %}

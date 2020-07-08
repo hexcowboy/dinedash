@@ -1,0 +1,14 @@
+{% extends "menu/detail.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}Edit {{ object }}{% endblock %}
+
+{% block menu_headers %}
+<form class="mb-3" method="post">{% csrf_token %}
+  {{ form | crispy }}
+  <div class="btn-group" role="group" aria-label="Menu controls">
+    <button type="submit" class="btn btn-primary">Update</button>
+    <a class="btn btn-secondary" href="{% url 'menu:detail' pk=object.uuid %}">Cancel</a>
+  </div>
+</form>
+{% endblock menu_headers %}
